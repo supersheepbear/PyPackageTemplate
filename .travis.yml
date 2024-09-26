@@ -1,28 +1,47 @@
-# Config file for automatic testing at travis-ci.com
-
+# Specify the primary programming language for the project
 language: python
+
+# Define the Python versions to test against
 python:
-  - 3.8
-  - 3.7
-  - 3.6
+  - "3.9"   # Test with Python 3.9
+  - "3.10"  # Test with Python 3.10
+  - "3.11"  # Test with Python 3.11
+  - "3.12"  # Test with Python 3.12
 
-# Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis
+# Cache pip dependencies to speed up builds
+# This saves time by reusing packages from previous builds
+cache: pip
 
-# Command to run tests, e.g. python setup.py test
-script: tox
+# Install dependencies section
+# This section defines the commands to run before the test script
+install:
+  # Upgrade pip to the latest version to ensure we have the most up-to-date package manager
+  - pip install --upgrade pip
+  # Install tox (a tool for automating test environment management)
+  # and tox-travis (a plugin that integrates tox with Travis CI)
+  - pip install tox tox-travis
 
-# Assuming you have installed the travis-ci CLI tool, after you
-# create the Github repo and add it to Travis, run the
-# following command to finish PyPI deployment setup:
-# $ travis encrypt --add deploy.password
-deploy:
-  provider: pypi
-  distributions: sdist bdist_wheel
-  user: washme
-  password:
-    secure: PLEASE_REPLACE_ME
-  on:
-    tags: true
-    repo: supersheepbear/cookiecutter_test
-    python: 3.8
+# Command to run tests
+# This section specifies the actual test command to execute
+script:
+  # Run tox, which will create virtual environments and run our test suite
+  # tox will use the configuration from tox.ini in our project root
+  - tox
+
+# Notification settings
+# Configure how and when Travis CI should send notifications about build status
+notifications:
+  email:
+    # Don't send emails on successful builds to reduce noise
+    on_success: never
+    # Always send emails when a build fails, so we're immediately aware of issues
+    on_failure: always
+
+# Branch settings
+# Specify which branches should trigger a build when pushed to
+branches:
+  only:
+    # Only build the master branch
+    # This helps conserve Travis CI build minutes and focuses CI on our main development branch
+    - master
+    # Note: Pull requests to master will still be built automatically

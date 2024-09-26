@@ -1,6 +1,4 @@
 """Console script for cookiecutter_test."""
-import cookiecutter_test
-
 import typer
 from rich.console import Console
 
@@ -9,7 +7,7 @@ console = Console()
 
 
 @app.command()
-def main():
+def main()-> None:
     """Console script for cookiecutter_test."""
     console.print("Replace this message by putting your code into "
                "cookiecutter_test.cli.main")

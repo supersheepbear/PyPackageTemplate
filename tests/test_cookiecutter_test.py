@@ -5,7 +5,6 @@
 import pytest
 
 
-from cookiecutter_test import cookiecutter_test
 
 
 @pytest.fixture

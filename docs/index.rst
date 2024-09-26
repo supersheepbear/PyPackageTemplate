@@ -1,5 +1,5 @@
 Welcome to cookiecutter_test's documentation!
-======================================
+=============================================
 
 .. toctree::
    :maxdepth: 2
