@@ -42,9 +42,9 @@ dev = [
 
 # Project URLs
 [project.urls]
-bugs = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/issues"  # Where users should report bugs
-changelog = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/blob/master/changelog.md"  # Where users can find the changelog
-homepage = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}"  # The main page for the project
+bugs = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"  # Where users should report bugs
+changelog = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/blob/master/changelog.md"  # Where users can find the changelog
+homepage = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"  # The main page for the project
 
 # Setuptools configuration
 [tool.setuptools]
