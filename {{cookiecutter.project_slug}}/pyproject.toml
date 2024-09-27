@@ -6,8 +6,8 @@ build-backend = "setuptools.build_meta"  # Tells the build system to use setupto
 # Project metadata
 [project]
 name = "{{ cookiecutter.project_name }}"  # The name of the package as it will appear on PyPI
-version = "0.1.0"  # The current version of the package (using semantic versioning)
-description = "a cookie cutter test package"  # A short, one-line description of what the package does
+version = "{{cookiecutter.version}}"  # The current version of the package (using semantic versioning)
+description = "{{cookiecutter.project_short_description}}"  # A short, one-line description of what the package does
 readme = "README.rst"  # The path to the README file, which will be used as the long description on PyPI
 authors = [
   {name = "{{ cookiecutter.full_name }}", email = {{ cookiecutter.email }}}  # The name and email of the package author
@@ -18,10 +18,13 @@ maintainers = [
 classifiers = [  # PyPI classifiers to categorize your project (currently empty)
 
 ]
-license = {text = "MIT license"}  # Specifies that this project is released under the MIT license
+license = {text = "{{cookiecutter.open_source_license}}"}  # Specifies that this project is released under the MIT license
 dependencies = [
-  "typer"  # Lists 'typer' as a required package for this project to run
+  {% if cookiecutter.command_line_interface.lower() == "typer" -%}
+  "typer"
+{%- endif %}
 ]
+
 
 # Optional development dependencies
 [project.optional-dependencies]
@@ -42,9 +45,9 @@ dev = [
 
 # Project URLs
 [project.urls]
-bugs = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"  # Where users should report bugs
-changelog = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/blob/master/changelog.md"  # Where users can find the changelog
-homepage = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"  # The main page for the project
+bugs = "https://github.com/{{cookiecutter.__gh_slug}}/issues"
+changelog = "https://github.com/{{cookiecutter.__gh_slug}}/blob/master/changelog.md"
+homepage = "https://github.com/{{cookiecutter.__gh_slug}}"
 
 # Setuptools configuration
 [tool.setuptools]
@@ -54,8 +57,14 @@ package-dir = {"" = "src"}  # Tells setuptools that the packages are in the 'src
 [tool.setuptools.package-data]
 "*" = ["*.*"]  # Includes all files in all packages when distributing
 
-# Mypy configuration
-# ------------------
+{% if cookiecutter.command_line_interface == 'Yes' %}
+[project.scripts]
+{{cookiecutter.slug}} = "{{cookiecutter.slug}}.cli:app"
+{% endif %}
+
+
+# Mypy
+# ----
 
 [tool.mypy]
 files = "."  # Tells mypy to check all Python files in the current directory and subdirectories

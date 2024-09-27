@@ -17,12 +17,11 @@
 # relative to the documentation root, use os.path.abspath to make it
 # absolute, like shown here.
 #
-import {{ cookiecutter.project_slug }}
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
-
+import {{ cookiecutter.project_slug }}
 
 # -- General configuration ---------------------------------------------
 
@@ -47,8 +46,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = '{{ cookiecutter.project_slug }}'
-copyright = "2024, {{ cookiecutter.full_name }}"
+project = '{{ cookiecutter.project_name }}'
+copyright = "{% now 'local', '%Y' %}, {{ cookiecutter.full_name }}"
 author = "{{ cookiecutter.full_name }}"
 
 # The version info for the project you're documenting, acts as replacement
@@ -65,7 +64,7 @@ release = {{ cookiecutter.project_slug }}.__version__
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'en'
+language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -129,8 +128,8 @@ latex_elements = {
 # [howto, manual, or own class]).
 latex_documents = [
     (master_doc, '{{ cookiecutter.project_slug }}.tex',
-     '{{ cookiecutter.project_slug }} Documentation',
-     'Yang Xiong', 'manual'),
+     '{{ cookiecutter.project_name }} Documentation',
+     '{{ cookiecutter.full_name }}', 'manual'),
 ]
 
 
@@ -140,7 +139,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, '{{ cookiecutter.project_slug }}',
-     '{{ cookiecutter.project_slug }} Documentation',
+     '{{ cookiecutter.project_name }} Documentation',
      [author], 1)
 ]
 
@@ -152,7 +151,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, '{{ cookiecutter.project_slug }}',
-     '{{ cookiecutter.project_slug }} Documentation',
+     '{{ cookiecutter.project_name }} Documentation',
      author,
      '{{ cookiecutter.project_slug }}',
      'One line description of project.',

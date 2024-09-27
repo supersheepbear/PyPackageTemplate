@@ -5,9 +5,9 @@ Credits
 Development Lead
 ----------------
 
-* {{ cookiecutter.full_name }} {{ cookiecutter.email }}
+* {{ cookiecutter.full_name }} <{{ cookiecutter.email }}>
 
 Contributors
 ------------
 
-None yet.
+None yet. Why not be the first?

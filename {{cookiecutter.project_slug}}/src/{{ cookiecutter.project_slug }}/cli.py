@@ -1,4 +1,6 @@
-"""Console script for {{ cookiecutter.project_slug }}."""
+"""Console script for {{cookiecutter.project_slug}}."""
+import {{cookiecutter.project_slug}}
+
 import typer
 from rich.console import Console
 
