@@ -1,4 +1,4 @@
-"""Console script for cookiecutter_test."""
+"""Console script for {{ cookiecutter.project_slug }}."""
 import typer
 from rich.console import Console
 
@@ -8,9 +8,9 @@ console = Console()
 
 @app.command()
 def main()-> None:
-    """Console script for cookiecutter_test."""
+    """Console script for {{ cookiecutter.project_slug }}."""
     console.print("Replace this message by putting your code into "
-               "cookiecutter_test.cli.main")
+               "{{ cookiecutter.project_slug }}.cli.main")
     console.print("See Typer documentation at https://typer.tiangolo.com/")
     
 

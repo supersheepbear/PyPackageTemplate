@@ -50,11 +50,11 @@ clean-test: ## remove test and coverage artifacts
 	@echo "Test and coverage artifacts removed successfully."
 
 lint-check: ## check style with ruff
-	ruff check src/cookiecutter_test tests
+	ruff check src/{{ cookiecutter.project_slug }} tests
 	@echo "Linting check completed successfully."
 
 lint-all: ## automatically fix style issues with ruff
-	ruff check --fix src/cookiecutter_test tests
+	ruff check --fix src/{{ cookiecutter.project_slug }} tests
 	@echo "Automatic linting completed successfully."
 
 test: ## run tests quickly with the default Python
@@ -66,16 +66,16 @@ test-all: ## run tests on every Python version with tox
 	@echo "All tests completed successfully on every Python version."
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source src/cookiecutter_test -m pytest
+	coverage run --source src/{{ cookiecutter.project_slug }} -m pytest
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
 	@echo "Code coverage check completed successfully."
 
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/cookiecutter_test.rst
+	rm -f docs/{{ cookiecutter.project_slug }}.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ src/cookiecutter_test || { echo "sphinx-apidoc failed"; exit 1; }
+	sphinx-apidoc -o docs/ src/{{ cookiecutter.project_slug }} || { echo "sphinx-apidoc failed"; exit 1; }
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html || { echo "Sphinx build failed"; exit 1; }
 	$(BROWSER) docs/_build/html/index.html
@@ -101,6 +101,6 @@ install: ## install the package to the active Python's site-packages
 	@echo "Package installed successfully."
 
 type-check: ## Run static type checks using mypy
-	mypy src/cookiecutter_test
+	mypy src/{{ cookiecutter.project_slug }}
 	@echo "Type checking completed successfully."
 

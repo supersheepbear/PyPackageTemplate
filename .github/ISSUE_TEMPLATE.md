@@ -1,4 +1,4 @@
-* cookiecutter_test version:
+* {{ cookiecutter.project_slug }} version:
 * Python version:
 * Operating System:
 

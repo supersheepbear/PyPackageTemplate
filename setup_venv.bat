@@ -9,7 +9,7 @@ if exist .venv (
 )
 
 echo Creating virtual environment...
-D:\sw_install\python312\python.exe -m venv .venv
+{{ cookiecutter.python_path }} -m venv .venv
 if %errorlevel% neq 0 (
     echo Failed to create virtual environment. Error level: %errorlevel%
     goto :eof

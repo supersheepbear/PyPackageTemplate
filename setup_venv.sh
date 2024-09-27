@@ -11,7 +11,7 @@ if [ -d ".venv" ]; then
 fi
 
 echo "Creating virtual environment..."
-D:/sw_install/python312/python.exe -m venv .venv
+{{ cookiecutter.python_path }} -m venv .venv
 if [ $? -ne 0 ]; then
     echo "Failed to create virtual environment. Error code: $?"
     exit 1

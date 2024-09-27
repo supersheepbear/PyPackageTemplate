@@ -5,15 +5,15 @@ build-backend = "setuptools.build_meta"  # Tells the build system to use setupto
 
 # Project metadata
 [project]
-name = "cookiecutter_test"  # The name of the package as it will appear on PyPI
+name = "{{ cookiecutter.project_name }}"  # The name of the package as it will appear on PyPI
 version = "0.1.0"  # The current version of the package (using semantic versioning)
 description = "a cookie cutter test package"  # A short, one-line description of what the package does
 readme = "README.rst"  # The path to the README file, which will be used as the long description on PyPI
 authors = [
-  {name = "Yang Xiong", email = "yxiong@umich.edu"}  # The name and email of the package author
+  {name = "{{ cookiecutter.full_name }}", email = {{ cookiecutter.email }}}  # The name and email of the package author
 ]
 maintainers = [
-  {name = "Yang Xiong", email = "yxiong@umich.edu"}  # The name and email of the person maintaining the package
+  {name = "{{ cookiecutter.full_name }}", email = {{ cookiecutter.email }}}  # The name and email of the person maintaining the package
 ]
 classifiers = [  # PyPI classifiers to categorize your project (currently empty)
 
@@ -42,9 +42,9 @@ dev = [
 
 # Project URLs
 [project.urls]
-bugs = "https://github.com/supersheepbear/cookiecutter_test/issues"  # Where users should report bugs
-changelog = "https://github.com/supersheepbear/cookiecutter_test/blob/master/changelog.md"  # Where users can find the changelog
-homepage = "https://github.com/supersheepbear/cookiecutter_test"  # The main page for the project
+bugs = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/issues"  # Where users should report bugs
+changelog = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/blob/master/changelog.md"  # Where users can find the changelog
+homepage = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}"  # The main page for the project
 
 # Setuptools configuration
 [tool.setuptools]

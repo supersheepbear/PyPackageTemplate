@@ -8,13 +8,13 @@ Installation
 Stable release
 --------------
 
-To install cookiecutter_test, run this command in your terminal:
+To install {{ cookiecutter.project_name }}, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install cookiecutter_test
+    $ pip install {{ cookiecutter.project_name }}
 
-This is the preferred method to install cookiecutter_test, as it will always install the most recent stable release.
+This is the preferred method to install {{ cookiecutter.project_name }}, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -26,26 +26,21 @@ you through the process.
 From sources
 ------------
 
-The sources for cookiecutter_test can be downloaded from the `Github repo`_.
+The sources for {{ cookiecutter.project_name }} can be downloaded from the `Github repo`_.
 
 You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/supersheepbear/cookiecutter_test
-
-Or download the `tarball`_:
-
-.. code-block:: console
-
-    $ curl -OJL https://github.com/supersheepbear/cookiecutter_test/tarball/master
+    $ git clone git://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}
 
 Once you have a copy of the source, you can install it with:
 
 .. code-block:: console
 
-    $ python setup.py install
+    $ source ./setup_venv.sh
+    $ make install
 
 
-.. _Github repo: https://github.com/supersheepbear/cookiecutter_test
-.. _tarball: https://github.com/supersheepbear/cookiecutter_test/tarball/master
+.. _Github repo: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}
+.. _tarball: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/tarball/master

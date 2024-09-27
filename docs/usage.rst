@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use cookiecutter_test in a project::
+To use {{ cookiecutter.project_slug }} in a project::
 
-    import cookiecutter_test
+    import {{ cookiecutter.project_slug }}

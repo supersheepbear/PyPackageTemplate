@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Tests for `cookiecutter_test` package."""
+"""Tests for `{{ cookiecutter.project_name }}` package."""
 
 import pytest
 
