@@ -12,7 +12,6 @@
   "add_pyup_badge": "y",
   "command_line_interface": ["Typer", "Argparse", "No command-line interface"],
   "create_author_file": "y",
-  "venv_python exe path": "/d/sw_install/python_312/python.exe",
   "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
   "python_path": "/d/sw_install/python_312/python.exe",
   "__gh_slug": "{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"

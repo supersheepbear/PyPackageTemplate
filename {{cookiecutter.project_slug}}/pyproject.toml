@@ -10,10 +10,10 @@ version = "{{cookiecutter.version}}"  # The current version of the package (usin
 description = "{{cookiecutter.project_short_description}}"  # A short, one-line description of what the package does
 readme = "README.rst"  # The path to the README file, which will be used as the long description on PyPI
 authors = [
-  {name = "{{ cookiecutter.full_name }}", email = {{ cookiecutter.email }}}  # The name and email of the package author
+  {name = "{{ cookiecutter.full_name }}", email = "{{ cookiecutter.email }}"}
 ]
 maintainers = [
-  {name = "{{ cookiecutter.full_name }}", email = {{ cookiecutter.email }}}  # The name and email of the person maintaining the package
+  {name = "{{ cookiecutter.full_name }}", email = "{{ cookiecutter.email }}"}
 ]
 classifiers = [  # PyPI classifiers to categorize your project (currently empty)
 

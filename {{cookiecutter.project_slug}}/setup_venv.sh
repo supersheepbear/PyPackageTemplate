@@ -26,18 +26,20 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Virtual environment activated. You can now install dependencies."
-echo "Upgrading pip and setuptools..."
-./.venv/Scripts/python.exe -m pip install --upgrade pip setuptools
-if [ $? -ne 0 ]; then
-    echo "Failed to upgrade pip and setuptools. Error code: $?"
-    exit 1
-fi
 
 echo "Installing dependencies..."
 ./.venv/Scripts/python.exe -m pip install -r requirements_dev.txt
 if [ $? -ne 0 ]; then
     echo "Failed to install dependencies. Error code: $?"
     exit 1
+fi
+
+echo "Upgrading pip and setuptools..."
+./.venv/Scripts/python.exe -m pip install --upgrade pip setuptools
+if [ $? -ne 0 ]; then
+    echo "Warning: Failed to upgrade pip and setuptools. This is not critical."
+    echo "You may want to manually upgrade pip and setuptools later using:"
+    echo "./.venv/Scripts/python.exe -m pip install --upgrade pip setuptools"
 fi
 
 echo "Virtual environment setup complete!"
