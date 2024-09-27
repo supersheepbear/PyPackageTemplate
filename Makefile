@@ -1,4 +1,4 @@
-.PHONY: clean clean-build clean-pyc clean-test coverage dist docs help install lint
+.PHONY: clean clean-build clean-pyc clean-test coverage dist docs help install lint-check lint-all type-check check-deps update-deps clean-docs
 
 .DEFAULT_GOAL := help
 
@@ -49,9 +49,13 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache || true
 	@echo "Test and coverage artifacts removed successfully."
 
-lint: ## check style with ruff
+lint-check: ## check style with ruff
 	ruff check src/cookiecutter_test tests
-	@echo "Linting completed successfully."
+	@echo "Linting check completed successfully."
+
+lint-all: ## automatically fix style issues with ruff
+	ruff check --fix src/cookiecutter_test tests
+	@echo "Automatic linting completed successfully."
 
 test: ## run tests quickly with the default Python
 	pytest
@@ -76,7 +80,9 @@ docs: ## generate Sphinx HTML documentation, including API docs
 	$(MAKE) -C docs html || { echo "Sphinx build failed"; exit 1; }
 	$(BROWSER) docs/_build/html/index.html
 	@echo "Documentation generated successfully."
-
+clean-docs: ## Remove documentation build artifacts
+	rm -rf docs/_build
+	@echo "Documentation build artifacts removed successfully."
 servedocs: docs ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 	@echo "Documentation server started successfully."
@@ -93,3 +99,8 @@ dist: ## builds source and wheel package
 install: ## install the package to the active Python's site-packages
 	pip install .
 	@echo "Package installed successfully."
+
+type-check: ## Run static type checks using mypy
+	mypy src/cookiecutter_test
+	@echo "Type checking completed successfully."
+
